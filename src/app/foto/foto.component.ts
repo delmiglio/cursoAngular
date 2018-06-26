@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-foto',
-  template: `<img src="assets/img/Rostov.jpg" alt="Rostov On Don">`,
+  template: `<img [src]="url" [alt]="titulo" class="img-fluid d-block mx-auto">`,
   styles: []
 })
 
-export class FotoComponent { }
+export class FotoComponent {
+  @Input() titulo;
+  @Input() url;
+ }
