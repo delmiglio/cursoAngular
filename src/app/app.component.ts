@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  template: `<app-listagem></app-listagem>`,
+  template: `<router-outlet></router-outlet>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  
 }

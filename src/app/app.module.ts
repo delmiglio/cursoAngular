@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from './card/card.module';
 import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ModuloRoteamento } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     BrowserModule,
     HttpClientModule,
     FotoModule,
-    CardModule
+    CardModule,
+    ModuloRoteamento
   ],
   providers: [],
   bootstrap: [AppComponent]
