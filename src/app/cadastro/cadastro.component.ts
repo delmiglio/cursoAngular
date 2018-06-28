@@ -32,6 +32,7 @@ export class CadastroComponent implements OnInit {
       erro => {
         console.log(erro);
         this.mensagem.tipo = "danger";
+        this.mensagem.texto = "OOPS, THERE IS SOMETHING WRONG";
       }
     );
   }
