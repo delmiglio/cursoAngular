@@ -8,4 +8,5 @@ import { FotoComponent } from "../foto/foto.component";
 })
 export class CardComponent {
   @Input() fotoObj: FotoComponent
+  fotoDefault = 'http://www.staticwhich.co.uk/static/images/products/no-image/no-image-available.png'
 }

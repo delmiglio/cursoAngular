@@ -1,6 +1,6 @@
 <div class="card">
   <!-- <ng-content></ng-content> -->
-  <app-foto [url]="fotoObj.url" [titulo]="fotoObj.titulo"></app-foto>
+  <app-foto [url]="fotoObj.url || fotoDefault" [titulo]="fotoObj.titulo"></app-foto>
   <div class="card-body">
     <h5 class="card-title">{{fotoObj.titulo}}</h5>
     <p class="card-text"><ng-content></ng-content></p>
