@@ -7,9 +7,14 @@
       <a routerLink="/cadastro" class="btn btn-primary">Nova Foto</a>
     </div>
   </div>
+  <div class="row" *ngIf="mensagem.texto">
+    <div class="col-md-12">
+      <app-mensagem [texto]="mensagem.texto" [tipo]="mensagem.tipo"></app-mensagem>
+    </div>
+  </div>
   <div class="row">
     <app-card *ngFor="let foto of listaFotos" [fotoObj]="foto" class="col-md-3">
-        <button class="btn btn-danger" (click)="apagar(foto)">Deletar</button>
+      <button class="btn btn-danger" (click)="apagar(foto)">Deletar</button>
     </app-card>
   </div>
 </main>

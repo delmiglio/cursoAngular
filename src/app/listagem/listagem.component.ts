@@ -11,7 +11,10 @@ import { Observable } from "rxjs";
 export class ListagemComponent {
   title = "Caelum Pic";
   listaFotos: FotoComponent[];
-
+  mensagem = {
+    tipo: "",
+    texto: ""
+  };
   constructor(private servico: FotoService) {
     this.servico.listar().subscribe(fotosApi => this.listaFotos = fotosApi);
   }
@@ -21,9 +24,12 @@ export class ListagemComponent {
       console.log(`${foto.titulo} apagada com sucesso`)
       this.listaFotos = this.listaFotos.filter( fotoDaLista => {
          return fotoDaLista != foto;
-      })
+      });
+      this.mensagem.texto = `${foto.titulo} deletada com sucesso`;
+      this.mensagem.tipo = "success";
     }, () => {
-
+      this.mensagem.tipo = "danger";
+      this.mensagem.texto = "OOPS, THERE IS SOMETHING WRONG";
     });
   }
 }
