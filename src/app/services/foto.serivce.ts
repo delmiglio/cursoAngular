@@ -25,10 +25,10 @@ export class FotoService{
     deletar(foto: FotoComponent): Observable<FotoComponent[]>{
         return this.conexaoApi.delete<FotoComponent[]>(`${this.url + foto._id}`,this.cabecalho);
     }
-    alterar(){
-
+    alterar(foto: FotoComponent): Observable<FotoComponent>{
+        return this.conexaoApi.put<FotoComponent>(`${this.url + foto._id}`,foto,this.cabecalho);
     }
-    pesquisar(){
-
+    pesquisar(fotoId: string) : Observable<FotoComponent>{
+        return this.conexaoApi.get<FotoComponent>(`${this.url + fotoId}`, this.cabecalho);
     }
 }

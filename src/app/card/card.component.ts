@@ -22,5 +22,9 @@ export class CardComponent {
       this.servico.deletar(foto).subscribe();
   }
 
+  editar(foto: FotoComponent){
+
+  }
+
 
 }
