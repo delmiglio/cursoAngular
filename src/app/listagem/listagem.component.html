@@ -8,7 +8,8 @@
     </div>
   </div>
   <div class="row">
-    <app-card *ngFor="let foto of listaFotos | async" [fotoObj]="foto" class="col-md-3">
+    <app-card *ngFor="let foto of listaFotos" [fotoObj]="foto" class="col-md-3">
+        <button class="btn btn-danger" (click)="apagar(foto)">Deletar</button>
     </app-card>
   </div>
 </main>

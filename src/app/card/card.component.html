@@ -3,7 +3,7 @@
   <app-foto [url]="fotoObj.url || fotoDefault" [titulo]="fotoObj.titulo"></app-foto>
   <div class="card-body">
     <h5 class="card-title">{{fotoObj.titulo}}</h5>
-    <p class="card-text"><ng-content></ng-content></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text">{{fotoObj.descricao}}</p>
+    <ng-content></ng-content>
   </div>
 </div>
