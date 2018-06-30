@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { FotoService } from "../services/foto.serivce";
 import { FotoComponent } from "../foto/foto.component";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 // import { FotoComponent } from '../foto/foto.component';
 
 @Component({
@@ -22,7 +22,11 @@ export class CadastroComponent implements OnInit {
     texto: ""
   };
 
-  constructor(private servico: FotoService, private rotaAtiva: ActivatedRoute) {
+  constructor(
+    private servico: FotoService,
+    private rotaAtiva: ActivatedRoute,
+    private roteador: Router
+  ) {
     let fotoId = this.rotaAtiva.snapshot.params.fotoId;
 
     if (fotoId) {
@@ -38,14 +42,13 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {}
 
   salvar() {
-    
-    
-    if(this.foto._id){
+    if (this.foto._id) {
       // Editar
       this.servico.alterar(this.foto).subscribe(
         resposta => {
           this.mensagem.texto = `${this.foto.titulo} editado com sucesso`;
           this.mensagem.tipo = "success";
+          setTimeout(() => this.roteador.navigate([""]),4000);
         },
         erro => {
           console.log(erro);
@@ -53,12 +56,13 @@ export class CadastroComponent implements OnInit {
           this.mensagem.texto = "OOPS, THERE IS SOMETHING WRONG";
         }
       );
-    }
-    else{
+    } else {
       this.servico.cadastrar(this.foto).subscribe(
         resposta => {
           this.mensagem.texto = `${this.foto.titulo} cadastrada com sucesso`;
           this.mensagem.tipo = "success";
+          setTimeout(() => this.roteador.navigate([""]),4000);
+          
         },
         erro => {
           console.log(erro);
@@ -67,7 +71,5 @@ export class CadastroComponent implements OnInit {
         }
       );
     }
-
-    
   }
 }
